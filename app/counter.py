@@ -16,19 +16,22 @@ class AbstractCounter(ABC):
         pass
 
     def if_speed_of_soud(self,value):
-        if value>self.speed_of_sound_limit:
+        if int(value)>self.speed_of_sound_limit:
             self.speed_of_sound=True #if value is greater than speed of soud value set true
+
+    def return_reslut(self):
+        return str(self.result)
 
 class KilometresPerHourCounter(AbstractCounter):
 
-    speed_of_sound_limit=1234.8 #speed of soud value
+    speed_of_sound_limit=float(1234.8) #speed of soud value
 
     def on_count(self,value):
-        self.result=value * 3280.840 #counting Foot Per Hour to Kilometres Per Hour
+        self.result=float(value) * float(3280.840) #counting Foot Per Hour to Kilometres Per Hour
 
 class FootPerHourCounter(AbstractCounter):
 
-    speed_of_sound_limit=4051181 #speed of soud value
+    speed_of_sound_limit=float(4051181) #speed of soud value
 
     def on_count(self,value):
-        self.result=value / 3280.840 #counting Kilometres Per Hour to Foot Per Hour
+        self.result=float(value) / float(3280.840) #counting Kilometres Per Hour to Foot Per Hour
