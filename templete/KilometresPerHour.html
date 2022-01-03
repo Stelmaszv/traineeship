@@ -5,6 +5,9 @@
         {{ form.as_p }}
         <input type="submit" class="button blue" value="Send">
     </form>
-    {{Counter.speed_of_sound}}
+    {% if Counter.speed_of_sound %}
+        <b style="color:red;">Warning speed of sound !</b>
+        <br>
+    {% endif %}
     {{Counter.result}}
 {% endblock %}
