@@ -3,12 +3,11 @@ from django.views.generic import TemplateView
 from app.counter import KilometresPerHourCounter, FootPerHourCounter
 from .forms import Calculate
 
-
 class AbstractView(TemplateView):
 
-    template_name = "main.html" #set_templete
-    context = {}                #data for templete
-    Counter=None                #instance of counter
+    template_name = "main.html"           #set_templete
+    context = {"form": Calculate()}       #data for templete
+    Counter=None                          #instance of counter
 
     def get_data(self,request):
         self.Counter() #get_counter
@@ -17,7 +16,6 @@ class AbstractView(TemplateView):
             counter=self.Counter().count(form.cleaned_data.get('value'))
             self.context = {"Counter": counter, "form": Calculate()}
             return render(request, self.template_name, self.context)
-        self.context = {"form": Calculate()}
         return render(request, self.template_name, self.context)
 
     def add_post(self,request):
