@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from app.views import AbstractView,KilometresPerHourViev
+from app.views import AbstractView, KilometresPerHourViev, FootPerHourViev
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/',AbstractView.as_view(),name="main"),  #url for set type of conversion
-    path('kilometresperhourviev/',KilometresPerHourViev.as_view(),name="kilometr" )#url for Kilometres per hour to fot per hour
+    path('main/',AbstractView.as_view(),name="main"),                                   #url for set type of conversion
+    path('kilometresperhourviev/',KilometresPerHourViev.as_view(),name="kilometr" ),    #url for Kilometres per hour to fot per hour
+    path('FootPerHourViev/',FootPerHourViev.as_view(),name="Foot" )               #url for foot per hour to fot per hour
 ]

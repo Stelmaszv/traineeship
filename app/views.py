@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from app.counter import KilometresPerHourCounter
+from app.counter import KilometresPerHourCounter, FootPerHourCounter
 from .forms import Calculate
 
 
@@ -35,4 +35,8 @@ class AbstractView(TemplateView):
 class KilometresPerHourViev(AbstractView):
     template_name = "KilometresPerHour.html"    #set_templete
     Counter=KilometresPerHourCounter            #instance of counter
+
+class FootPerHourViev(AbstractView):
+    template_name = "FootPerHour.html"          #set_templete
+    Counter=FootPerHourCounter                  #instance of counter
 
