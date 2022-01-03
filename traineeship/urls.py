@@ -20,6 +20,6 @@ from app.views import AbstractView,KilometresPerHourViev
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/',AbstractView.as_view()),
-    path('kilometresperhourviev/',KilometresPerHourViev.as_view())
+    path('main/',AbstractView.as_view(),name="main"),
+    path('kilometresperhourviev/',KilometresPerHourViev.as_view(),name="kilometr")
 ]
