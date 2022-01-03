@@ -8,8 +8,7 @@ class AbstractView(TemplateView):
 
     template_name = "main.html" #set_templete
     context = {}                #data for templete
-    stan=False
-    Counter=None
+    Counter=None                #instance of counter
 
     def get_data(self,request):
         self.Counter() #get_counter
@@ -25,7 +24,7 @@ class AbstractView(TemplateView):
         return self.get_data(request)
 
     def post(self, request, *args, **kwargs):
-        return self.add_post(request)
+        return self.add_post(request) #action in post
 
     def add_get(self, request, *args, **kwargs):
         return self.get_data(request)
@@ -34,6 +33,6 @@ class AbstractView(TemplateView):
         return self.add_get(request) #action in get
 
 class KilometresPerHourViev(AbstractView):
-    template_name = "KilometresPerHour.html" #set_templete
-    Counter=KilometresPerHourCounter
+    template_name = "KilometresPerHour.html"    #set_templete
+    Counter=KilometresPerHourCounter            #instance of counter
 
